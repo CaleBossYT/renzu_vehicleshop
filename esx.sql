@@ -1,4 +1,4 @@
-CREATE TABLE `owned_vehicles` (
+CREATE TABLE IF NOT EXISTS `owned_vehicles` (
 	`owner` VARCHAR(64) NOT NULL COLLATE 'utf8mb4_bin',
 	`plate` VARCHAR(12) NOT NULL COLLATE 'utf8mb4_bin',
 	`vehicle` LONGTEXT NULL DEFAULT NULL COLLATE 'utf8mb4_bin',
@@ -14,14 +14,14 @@ ENGINE=InnoDB
 ;
 
 ALTER TABLE owned_vehicles
-ADD `garage_id` varchar(32) NOT NULL DEFAULT 'A';
+ADD IF NOT EXISTS `garage_id` varchar(32) NOT NULL DEFAULT 'A';
 
 
 ALTER TABLE owned_vehicles
-ADD `job` varchar(32) NOT NULL DEFAULT 'civ';
+ADD IF NOT EXISTS `job` varchar(32) NOT NULL DEFAULT 'civ';
 
 ALTER TABLE owned_vehicles
-ADD `stored` tinyint(1) NOT NULL DEFAULT 1;
+ADD IF NOT EXISTS `stored` tinyint(1) NOT NULL DEFAULT 1;
 
 ALTER TABLE owned_vehicles
-ADDt `type` varchar(32) NOT NULL DEFAULT 'car';
+ADD IF NOT EXISTS `type` varchar(32) NOT NULL DEFAULT 'car';
